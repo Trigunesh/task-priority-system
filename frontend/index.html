@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Task Prioritizer</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>Smart Task Prioritizer</header>
+
+<div class="container">
+
+    <!-- Task Form -->
+    <div class="card">
+        <h2>Add a Task</h2>
+
+        <label>Title</label>
+        <input id="title" type="text" placeholder="Fix login bug">
+
+        <label>Due Date</label>
+        <input id="due" type="date">
+
+        <label>Estimated Hours</label>
+        <input id="hours" type="number" min="1" placeholder="3">
+
+        <label>Importance (1-10)</label>
+        <input id="importance" type="number" min="1" max="10" placeholder="8">
+
+        <label>Dependencies (comma-separated IDs)</label>
+        <input id="deps" type="text" placeholder="1, 5">
+
+        <button id="add-btn">Add Task</button>
+    </div>
+
+    <!-- Bulk JSON -->
+    <div class="card">
+        <h2>Bulk JSON Task Import</h2>
+        <textarea id="bulk" rows="6" placeholder='[{"title": "Task A", "due_date":"2025-01-12","estimated_hours":2,"importance":8}]'></textarea>
+        <button id="bulk-btn">Import JSON</button>
+    </div>
+
+    <!-- Strategy Selector -->
+    <div class="card">
+        <h2>Choose Sorting Strategy</h2>
+
+        <select id="strategy">
+            <option value="smart">Smart Balance (Recommended)</option>
+            <option value="fast">Fastest Wins (Low Effort)</option>
+            <option value="impact">High Impact (Importance)</option>
+            <option value="deadline">Deadline Driven</option>
+        </select>
+
+        <button id="analyze-btn">Analyze Tasks</button>
+    </div>
+
+    <!-- Output -->
+    <div class="card">
+        <h2>Results</h2>
+        <pre id="result"></pre>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
